@@ -57,7 +57,7 @@ print(dis("set([10])"))
 print()
 
 # 지능형 집합(Comprehending set)
-from unicodedata import name
+from unicodedata import name  # 문자열로 이름을 뽑아내기 위해 사용
 
 print("---------")
 print({name(chr(i), "") for i in range(0, 256)})
