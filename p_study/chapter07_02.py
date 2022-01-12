@@ -1,4 +1,4 @@
-# chapter07_01
+# chapter07_02
 # pip install asyncio
 # pip install beautifulsoup4
 # AsyncIO - async/await 구문을 사용하여 동시성 코드를 작성하는 라이브러리,
@@ -17,6 +17,7 @@
 import asyncio
 import timeit
 from urllib.request import urlopen
+from bs4 import BeautifulSoup
 from concurrent.futures import ThreadPoolExecutor, thread
 import threading
 
@@ -39,10 +40,17 @@ async def fetch(url, executor):
 
     # 실행
     res = await loop.run_in_executor(executor, urlopen, url)
+
+    soup = BeautifulSoup(res.read(), "html.parser")
+
+    # 전체 페이지 소스 확인
+    # print(soup.prettify)
+    result_data = soup.title
+
     print("Thread Name : ", threading.current_thread().getName(), "Done ", url)
 
     # 결과 반환
-    return res.read()[0:5]
+    return result_data
 
 
 async def main():
