@@ -7,6 +7,10 @@ Keyword - Type inheritance(타입 상속), Custom metaclass
 1. type클래스 상속
 2. metaclass 속성 사용
 3. 커스텀 메타 클래스 생성
+    - 클래스 생성 가로채기(intercept)
+    - 클래스 수정하기(modify)
+    - 클래스 개선(기능추가)
+    - 수정된 클래스 반환
 """
 
 # Ex1
